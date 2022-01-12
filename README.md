@@ -1,5 +1,5 @@
 # My Expenses
-#### Video Demo:  <URL https://youtu.be/cgxhnqWF0tc>
+#### Video Demo:  <URL HERE>https://youtu.be/cgxhnqWF0tc
 #### Developer: Solange Brugnatelli Vianini
 
 ## Description:
