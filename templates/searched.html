@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    <form action="/search" method="post">
+        <button class="btn btn-primary" type="submit"><a href="/search">Back to Search</a></button>
+        <table>
+            <tr>
+                <th>Day</th>
+                <th>Month</th>
+                <th>Year</th>
+                <th>Amount</th>
+                <th>Typology</th>
+            </tr>
+            {% for transaction in transactions %}
+                <tr>
+                    <td>{{ transaction.day }}</td>
+                    <td>{{ transaction.month }}</td>
+                    <td>{{ transaction.year }}</td>
+                    <td>{{ transaction.amount }} €</td>
+                    <td>{{ transaction.type }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </form>
+
+
+{% endblock %}

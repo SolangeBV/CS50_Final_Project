@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    <form action="/" method="post">
+
+        <h2>TOTAL: {{ credit }}€</h2>
+
+        <label for="selectedmonth">Select month:</label>
+
+        <select name="selectedmonth">
+            <option disabled selected value="">Month</option>
+            <option value="January">January</option>
+            <option value="February">February</option>
+            <option value="March">March</option>
+            <option value="April">April</option>
+            <option value="May">May</option>
+            <option value="June">June</option>
+            <option value="July">July</option>
+            <option value="August">August</option>
+            <option value="September">September</option>
+            <option value="October">October</option>
+            <option value="November">November</option>
+            <option value="December">December</option>
+        </select>
+
+        <label for="selectedyear">Select year:</label>
+
+        <select name="selectedyear">
+            <option disabled selected value="">Year</option>
+                <option value="2021">2021</option>
+                <option value="2022">2022</option>
+        </select>
+
+        <input type="submit" value="Submit">
+
+</form>
+
+{% endblock %}

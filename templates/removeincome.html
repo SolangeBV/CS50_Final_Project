@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    <form action="/removeincome" method="post">
+        <label for="description">Select transaction:</label>
+        <select name="description">
+            <option disabled selected value="">Transaction</option>
+            {% for transaction in transactions %}
+                <option value="{{ transaction.description }}">{{ transaction.description }}</option>
+            {% endfor %}
+        </select>
+
+        <input type="submit" value="Remove">
+
+    </form>
+
+
+{% endblock %}

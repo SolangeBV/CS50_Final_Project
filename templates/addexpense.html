@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    <form action="/addexpense" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="description" placeholder="Description" type="text">
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="amount" placeholder="Amount" type="text"> €
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="day" placeholder="Day" type="number" min="1" max="31">
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="month" placeholder="Month" type="number" min="1" max="31">
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="year" placeholder="Year" type="number">
+        </div>
+        <label for="typology">Select typology:</label>
+        <select name="typology">
+            <option disabled selected value="">Typology</option>
+            {% for type in typology %}
+                <option value="{{ type }}">{{ type }}</option>
+            {% endfor %}
+        </select>
+        <button class="btn btn-primary" type="submit">Add expense</button>
+    </form>
+
+
+{% endblock %}

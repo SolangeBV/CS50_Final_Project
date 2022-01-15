@@ -1,0 +1,111 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+<form action="/">
+
+        <h1>{{ selectedmonth }} {{ selectedyear }}</h1>
+        <p></p>
+        <p></p>
+        <p>TOTAL: {{ credit }}€</p>
+        <p></p>
+        <p></p>
+
+
+        <div class="parent">
+            <div id="container1" style="width: 100%; height: 100%"></div>
+
+            {% block div %}{% endblock %}
+
+            <script>
+                var json4real = JSON.parse(jsonstr);
+            </script>
+
+            <script>
+            // Source code: https://www.anychart.com/blog/2017/12/06/pie-chart-create-javascript/
+
+            anychart.onDocumentReady(function() {
+
+                // set the data
+                var data = [
+                    {x: "Salaries and Pensions", value: json4real[0].salaries_and_pensions},
+                    {x: "Received Transfers", value: json4real[0].received_transfers}
+                    ];
+
+                // create the chart
+                var chart = anychart.pie();
+
+                // set the chart title
+                chart.title("Your incomes for this month");
+
+                // add the data
+                chart.data(data);
+
+                // display the chart in the container
+                chart.container('container1');
+                chart.draw();
+
+                });
+            </script>
+
+            <div id="container2" style="width: 100%; height: 100%"></div>
+
+            <script>
+            // Source code: https://www.anychart.com/blog/2017/12/06/pie-chart-create-javascript/
+
+            anychart.onDocumentReady(function() {
+
+                // set the data
+                var data = [
+                    {x: "Household Expenses", value: (0 - json4real[0].household_expenses)},
+                    {x: "Health and Wellness", value: (0 - json4real[0].health_and_wellness)},
+                    {x: "Free Time", value: (0 - json4real[0].free_time)},
+                    {x: "Transport", value: (0 - json4real[0].transport)},
+                    {x: "Family", value: (0 - json4real[0].family)},
+                    {x: "Others", value: (0 - json4real[0].others)}
+                    ];
+
+                // create the chart
+                var chart = anychart.pie();
+
+                // set the chart title
+                chart.title("Your expenses for this month");
+
+                // add the data
+                chart.data(data);
+
+                // display the chart in the container
+                chart.container('container2');
+                chart.draw();
+
+                });
+            </script>
+
+            <table class="monthtable">
+                <tr>
+                    <th>Day</th>
+                    <th>Month</th>
+                    <th>Year</th>
+                    <th>Description</th>
+                    <th>Amount</th>
+                    <th>Typology</th>
+                </tr>
+                {% for row in rows %}
+                    <tr>
+                        <td>{{ row.day }}</td>
+                        <td>{{ row.month }}</td>
+                        <td>{{ row.year }}</td>
+                        <td>{{ row.description }}</td>
+                        <td>{{ row.amount }} €</td>
+                        <td>{{ row.type }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+</form>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+<form action="/showperiodicals">
+    <table>
+        <tr>
+            <th>Day</th>
+            <th>Description</th>
+            <th>Amount</th>
+            <th>Typology</th>
+        {% for row in rows %}
+            </tr>
+                <td>{{ row.day }}</td>
+                <td>{{ row.description }}</td>
+                <td>{{ row.amount }} €</td>
+                <td>{{ row.type }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</form>
+
+{% endblock %}
